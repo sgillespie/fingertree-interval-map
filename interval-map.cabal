@@ -1,0 +1,35 @@
+cabal-version:      3.0
+name:               interval-map
+version:            0.1.0.0
+synopsis:
+    A specialization of fingertrees that allows searching intervals
+
+homepage:           https://github.com/sgillespie/interval-map
+license:            MIT
+license-file:       LICENSE
+author:             Sean D Gillespie
+maintainer:         sean@mistersg.net
+category:           Data
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  MyLib
+    build-depends:
+        base
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite interval-map-test
+    import:           warnings
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base,
+        interval-map
