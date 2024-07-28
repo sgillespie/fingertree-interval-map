@@ -34,4 +34,5 @@ test-suite interval-map-test
     main-is:          Main.hs
     build-depends:
         base,
-        interval-map
+        interval-map,
+        hspec
