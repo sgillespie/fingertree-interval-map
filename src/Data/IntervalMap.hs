@@ -23,6 +23,9 @@ module Data.IntervalMap
     bounds,
     leastView,
     splitAfter,
+
+    -- * Construction
+    fromList,
   ) where
 
 import Data.FingerTree (FingerTree (), ViewL (..), (<|), (><))
@@ -205,3 +208,6 @@ splitAfter :: Ord v => v -> IntervalMap v a -> (IntervalMap v a, IntervalMap v a
 splitAfter k (IntervalMap t) = (IntervalMap before, IntervalMap after)
   where
     (before, after) = FingerTree.split (greater k) t
+
+fromList :: Ord v => [(Interval v, a)] -> IntervalMap v a
+fromList vs = foldr (uncurry insert) empty vs

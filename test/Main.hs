@@ -1,6 +1,6 @@
 module Main (main) where
 
-import Data.IntervalMap as IntervalMap
+import qualified Data.IntervalMap as IntervalMap
 import Test.Hspec
 
 main :: IO ()
@@ -11,12 +11,7 @@ main = hspec $ do
       let f = IntervalMap.Interval 0 10 :: IntervalMap.Interval Int
           g = IntervalMap.Interval 5 10
           h = IntervalMap.Interval 7 10
-
-          intervals =
-            IntervalMap.insert f "f" $
-              IntervalMap.insert g "g" $
-                IntervalMap.insert h "h" $
-                  empty
+          intervals = IntervalMap.fromList [(f, "f"), (g, "g"), (h, "h")]
 
       shallowSearch intervals `shouldBe` [g]
 
