@@ -18,6 +18,11 @@
         project = pkgs.haskell-nix.cabalProject' {
           src = ./.;
           compiler-nix-name = "ghc910";
+
+          shell.tools = {
+            ghcid = {};
+            haskell-language-server = {};
+          };
         };
 
         flake = project.flake {};
