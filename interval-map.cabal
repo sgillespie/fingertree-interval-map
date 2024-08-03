@@ -20,6 +20,8 @@ library
     import:           warnings
     exposed-modules:
         Data.IntervalMap
+    other-modules:
+        Data.IntervalMap.Internal
     build-depends:
         base,
         fingertree
